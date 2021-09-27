@@ -1,32 +1,72 @@
 <template>
-  <div id="app">
-    <div id="nav">
-      <router-link to="/">Home</router-link> |
-      <router-link to="/about">About</router-link>
-    </div>
-    <router-view/>
-  </div>
+  <v-app>
+    <v-app-bar color="white" elevation="1">
+      <v-img src="./assets/blubirch_logo.png" max-height="47" max-width="196">
+      </v-img>
+      <v-spacer></v-spacer>
+      <div>
+        <span class="ml-3">
+          HOME
+        </span>
+        <span class="ml-3">
+          AUCTION
+        </span>
+        <span class="ml-3">
+          MY ORDERS
+        </span>
+        <span class="ml-3">
+          MY BIDS
+        </span>
+        <span class="ml-3">
+          REFER AND EARN
+        </span>
+        <span class="ml-3">
+          MY CREDITS
+        </span>
+        <span class="ml-0">
+          <v-col class="d-inline-flex mr-0" cols="12" sm="3">
+            <v-select :items="items" label="JACKR" dense outlined></v-select>
+          </v-col>
+        </span>
+      </div>
+    </v-app-bar>
+    <v-main>
+      <router-view />
+    </v-main>
+  </v-app>
 </template>
 
+<script>
+export default {
+  name: "App",
+
+  data: () => ({
+    items: ["Foo", "Bar", "Fizz", "Buzz"],
+  }),
+};
+</script>
 <style>
-#app {
-  font-family: Avenir, Helvetica, Arial, sans-serif;
-  -webkit-font-smoothing: antialiased;
-  -moz-osx-font-smoothing: grayscale;
-  text-align: center;
-  color: #2c3e50;
+* {
+  font-family: Inter;
 }
-
-#nav {
-  padding: 30px;
+.v-messages {
+  display: none !important;
 }
-
-#nav a {
-  font-weight: bold;
-  color: #2c3e50;
+.v-text-field__details {
+  display: none !important;
 }
+.inputs {
+  font-family: Roboto;
+  font-style: normal;
+  font-weight: normal;
+  font-size: 16px;
+  line-height: 24px;
+  /* identical to box height, or 150% */
 
-#nav a.router-link-exact-active {
-  color: #42b983;
+  letter-spacing: 0.15px;
+
+  color: #666666;
+
+  mix-blend-mode: normal;
 }
 </style>
